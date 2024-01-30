@@ -14,6 +14,7 @@ const appointmentSchema = new Schema({
     type: String,
     enum: ['Wash and Style','Updo','Braiding','Curling','Straightening',
     'Deep Conditioning', 'Scalp Treatment','Hair Cut', 'Hair Coloring', 'Extensions','Makeup Application'], 
+    required: true,
   },
   duration: {
     type: String,
@@ -23,7 +24,6 @@ const appointmentSchema = new Schema({
     type: String,
     required: true,
   },
-  // Add more fields as needed for your specific requirements
-  // For example: location, duration, stylist, etc.
+
 });
 module.exports = mongoose.model('Appointment',appointmentSchema)
