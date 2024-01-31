@@ -21,7 +21,7 @@ export function deleteAppointment(appointmentId) {
   return sendRequest(url, 'DELETE');
 }
 
-export function updateAppointment(appointmentId) {
+export function updateAppointment(appointmentId,formData) {
   const url = `${BASE_URL}/${appointmentId}`;
-  return sendRequest(url, 'UPDATE');
+  return sendRequest(url, 'PUT', formData);
 }

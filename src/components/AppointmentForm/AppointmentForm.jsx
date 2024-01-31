@@ -4,10 +4,8 @@ import React, { useState } from 'react';
 const AppointmentForm = ({ addAppointment }) => {
   const [formData, setFormData] = useState({
     date: '',
-    time: '',
     clientName: '',
-    serviceType: '',
-    duration: '', // Add duration to the initial state
+    serviceType: 'Wash and Style',
   });
 
   const handleChange = (e) => {
@@ -25,10 +23,8 @@ const AppointmentForm = ({ addAppointment }) => {
      
       setFormData({
         date: '',
-        time: '',
         clientName: '',
         serviceType: '',
-        duration: '',
       });
     } catch (error) {
       console.error('Error creating appointment:', error);
@@ -41,21 +37,6 @@ const AppointmentForm = ({ addAppointment }) => {
         Date:
           <input type="date" name="date" value={formData.date} onChange={handleChange} required />
       </label>
-
-      <br />
-
-      <label>
-        Time:
-          <input type="time" name="time" value={formData.time} onChange={handleChange} required />
-      </label>
-
-      <br />
-
-      <label>
-        Duration:
-         <input type="duration" name="duration" value={formData.duration} onChange={handleChange} required />
-      </label>
-
       <br />
 
       <label>
@@ -82,7 +63,7 @@ const AppointmentForm = ({ addAppointment }) => {
         </select>
       </label>
       <br />
-        <button type="submit">Add Appointment</button>
+        <button type="submit">Schedule Appointment</button>
     </form>
   );
 };

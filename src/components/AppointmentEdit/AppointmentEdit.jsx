@@ -1,29 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import * as appointmentAPI from '../../utilities/appointment-api';
 
-const EditAppointmentPage = ({ appointmentId, history }) => {
+const EditAppointmentPage = ({appointment, updateAppointment}) => {
   const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    clientName: '',
-    serviceType: '',
-    duration: '',
+    date: formatDate(appointment.date),
+    clientName: appointment.clientName,
+    serviceType: appointment.serviceType
   });
 
-  useEffect(() => {
-    fetchAppointment();
-  }, [appointmentId]);
 
-  const fetchAppointment = async () => {
-    try {
-      const existingAppointment = await appointmentAPI.getAppointmentById(
-        appointmentId
-      );
-      setFormData(existingAppointment);
-    } catch (error) {
-      console.error('Error', error);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,28 +18,54 @@ const EditAppointmentPage = ({ appointmentId, history }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await appointmentAPI.updateAppointment(appointmentId, formData);
-      history.push('/appointments');
+      const newAppointment = await appointmentAPI.updateAppointment(appointment._id, formData);
+      
+      updateAppointment(newAppointment)
+
     } catch (error) {
       console.error('Error updating appointment', error);
     }
   };
 
+  function formatDate (date) {
+    const newDate = new Date(date)
+    return newDate.getFullYear().toString().padStart(4, '0') + '-' + (newDate.getMonth()+1).toString().padStart(2, '0') + '-' + newDate.getDate().toString().padStart(2, '0')
+  }
+
   return (
     <div>
       <h2>Edit Appointment</h2>
       <form onSubmit={handleSubmit}>
-        {/* Your form fields go here, similar to the create form */}
-        <label>
-          Date:
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
-        </label>
+      <label>
+        Date:
+          <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+      </label>
+
+      <br />
+
+      <label>
+        Client Name:
+         <input type="text" name="clientName" value={formData.clientName} onChange={handleChange} required />
+      </label>
+
+      <br />
+
+      <label>
+        Service Type:
+        <select name="serviceType" value={formData.serviceType} onChange={handleChange}required>
+            <option value="Wash and Style">Wash and Style</option>
+            <option value="Updo">Updo</option>
+            <option value="Braiding">Braiding</option>
+            <option value="Curling">Curling</option>
+            <option value="Straightening">Straightening</option>
+            <option value="Deep Conditioning">Deep Conditioning</option>
+            <option value="Scalp Treatment">Scalp Treatment</option>
+            <option value="Hair Cut">Hair Cut</option>
+            <option value="Hair Coloring">Hair Coloring</option>
+            <option value="Extensions">Extensions</option>
+            <option value="Makeup Application">Makeup Application</option>
+        </select>
+      </label>
         <button type="submit">Update Appointment</button>
       </form>
     </div>

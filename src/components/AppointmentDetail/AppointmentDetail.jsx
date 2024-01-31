@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
 import * as appointmentAPI from '../../utilities/appointment-api'
+import AppointmentEdit from '../AppointmentEdit/AppointmentEdit'
+import { useState } from 'react';
 
-const AppointmentDetailPage = (props) => {
-  console.log(props)
-  const appointment= props.appointment
-  const fetchAppointments= props.fetchAppointments
+const AppointmentDetailPage = ({appointment, fetchAppointments, updateAppointment}) => {
+  const [showEdit, setShowEdit] = useState(false) 
 
   const handleDelete = async () => {
     try {
       await appointmentAPI.deleteAppointment(appointment._id);
       await fetchAppointments()
-      // const updatedAppointments = appointments.filter(
-      //   (appointment) => appointment._id !== appointment._id
-      // );
-      // setAppointments(updatedAppointments);
+
     } catch (error) {
       console.error('Error', error);
     }
   };
+  const handleClick = () => {
+    setShowEdit(!showEdit)
+  }
+  
+
 
   return (
     <div>
@@ -27,9 +28,9 @@ const AppointmentDetailPage = (props) => {
         <p>Time: {appointment.time}</p>
         <p>Client Name: {appointment.clientName}</p>
         <p>Service Type: {appointment.serviceType}</p>
-        <p>Duration: {appointment.duration}</p>
         <button onClick={handleDelete}>Delete Appointment</button>
-        {/* <button onClick={}>Edit Appointment</button> */}
+        <button onClick={handleClick}>Show Edit</button>
+       {showEdit ? <AppointmentEdit appointment={appointment} updateAppointment={updateAppointment} />:null}
       </div>
     </div>
   );

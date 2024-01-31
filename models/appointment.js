@@ -16,9 +16,5 @@ const appointmentSchema = new Schema({
     'Deep Conditioning', 'Scalp Treatment','Hair Cut', 'Hair Coloring', 'Extensions','Makeup Application'], 
     required: true,
   },
-  duration: {
-    type: String,
-    required: true,
-  },
 });
 module.exports = mongoose.model('Appointment',appointmentSchema)

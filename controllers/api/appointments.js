@@ -40,7 +40,7 @@ async function deleteAppointment(req, res) {
 }
 async function updateAppointment(req, res) {
   try {
-    const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, {  new: true, runValidators: true });
     res.json(appointment);
   } catch (err) {
     console.error(err);
