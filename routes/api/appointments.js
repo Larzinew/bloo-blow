@@ -8,7 +8,9 @@ router.post('/', appointmentCtrl.create);
 // GET /api/appointments (list appointments)
 router.get('/', appointmentCtrl.index);
 // DELETE /api/appointment (cancel appointment)
-router.delete('/appointments/:id', appointmentCtrl.index)
+router.delete('/:id', appointmentCtrl.deleteAppointment)
+//UPDATE /api/appointment (update appointment)
+router.put('/:id', appointmentCtrl.updateAppointment)
 
 
 module.exports = router;

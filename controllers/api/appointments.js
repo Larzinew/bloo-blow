@@ -3,7 +3,8 @@ const Appointment = require('../../models/appointment');
 module.exports = {
     create,
     index,
-    cancel,
+    deleteAppointment,
+    updateAppointment,
   };
 
 async function create(req, res) {
@@ -28,10 +29,19 @@ async function index(req,res) {
   }
 }
 
-async function cancel(req, res) {
+async function deleteAppointment(req, res) {
   try {
     const deletedAppointment = await Appointment.deleteOne({ _id: req.params.id });
     res.json(deletedAppointment);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json(err);
+  }
+}
+async function updateAppointment(req, res) {
+  try {
+    const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(appointment);
   } catch (err) {
     console.error(err);
     res.status(400).json(err);

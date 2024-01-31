@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as appointmentAPI from '../../utilities/appointment-api'
+
 
 const AppointmentForm = ({ addAppointment }) => {
   const [formData, setFormData] = useState({
@@ -7,7 +7,6 @@ const AppointmentForm = ({ addAppointment }) => {
     time: '',
     clientName: '',
     serviceType: '',
-    status: 'Scheduled',
     duration: '', // Add duration to the initial state
   });
 
@@ -29,7 +28,6 @@ const AppointmentForm = ({ addAppointment }) => {
         time: '',
         clientName: '',
         serviceType: '',
-        status: 'Scheduled',
         duration: '',
       });
     } catch (error) {
@@ -83,18 +81,6 @@ const AppointmentForm = ({ addAppointment }) => {
             <option value="Makeup Application">Makeup Application</option>
         </select>
       </label>
-
-      <br />
-
-      <label>
-        Status:
-        <select name="status" value={formData.status} onChange={handleChange}required>
-          <option value="Book">Book Appointment</option>
-          <option value="Reschedule">Re-Schedule</option>
-          <option value="Cancel">Cancel</option>
-        </select>
-      </label>
-      
       <br />
         <button type="submit">Add Appointment</button>
     </form>

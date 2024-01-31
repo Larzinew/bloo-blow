@@ -10,16 +10,16 @@ export default function AppointmentPage() {
     const createdAppointment = await appointmentAPI.createAppointment(newAppointment);
     setAppointments([...appointments, createdAppointment]);
   };
+  async function fetchAppointments() {
+  
+    const fetchedAppointments = await appointmentAPI.getAll();
+    setAppointments(fetchedAppointments);
+    
+  
+  }
 
   useEffect(() => {
-    async function fetchAppointments() {
-  
-      const fetchedAppointments = await appointmentAPI.getAll();
-      setAppointments(fetchedAppointments);
-    
-    }
-
-    fetchAppointments();
+   fetchAppointments();
   }, []);
 
   return (
@@ -27,7 +27,8 @@ export default function AppointmentPage() {
       <h1>New Appointment</h1>
       <AppointmentForm addAppointment={addAppointment} />
       {appointments.map((appointment) => (
-        <AppointmentDetail key={appointment._id} appointment={appointment} />
+        <AppointmentDetail key={appointment._id} appointment={appointment} fetchAppointments={fetchAppointments}/>
+    
       ))}
     </div>
   );
