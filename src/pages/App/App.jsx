@@ -7,6 +7,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import AvailabilityPage from '../AvailabilityPage/AvailabilityPage'
 import SchedulePage from '../SchedulePage/SchedulePage';
+import HomePage from '../HomePage/HomePage';
 
 
 
@@ -21,6 +22,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
+              <Route path='/' element={<HomePage />} />
               <Route path='/appointment/new' element={<AppointmentPage />} />
               <Route path='/availability' element={<AvailabilityPage />} />
               <Route path='/schedule/:selectedDate' element={<SchedulePage />} />
