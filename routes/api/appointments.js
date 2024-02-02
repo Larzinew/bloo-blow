@@ -11,6 +11,8 @@ router.get('/', appointmentCtrl.index);
 router.delete('/:id', appointmentCtrl.deleteAppointment)
 //UPDATE /api/appointment (update appointment)
 router.put('/:id', appointmentCtrl.updateAppointment)
+// GET /schedule/date (see if there are avaiable appointments by date)
+router.get('/appointmentsByDate/:date', appointmentCtrl.getAppointmentByDate)
 
 
 module.exports = router;

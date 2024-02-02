@@ -5,6 +5,10 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
+import AvailabilityPage from '../AvailabilityPage/AvailabilityPage'
+import SchedulePage from '../SchedulePage/SchedulePage';
+
+
 
 
 export default function App() {
@@ -18,6 +22,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path='/appointment/new' element={<AppointmentPage />} />
+              <Route path='/availability' element={<AvailabilityPage />} />
+              <Route path='/schedule/:selectedDate' element={<SchedulePage />} />
             </Routes>
           </>
           :
@@ -25,4 +31,5 @@ export default function App() {
       }
     </main>
   );
+  
 }

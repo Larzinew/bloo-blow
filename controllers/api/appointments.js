@@ -5,6 +5,7 @@ module.exports = {
     index,
     deleteAppointment,
     updateAppointment,
+    getAppointmentByDate,
   };
 
 async function create(req, res) {
@@ -47,3 +48,15 @@ async function updateAppointment(req, res) {
     res.status(400).json(err);
   }
 }
+async function getAppointmentByDate(req, res){
+  try{
+    const selectedDate = req.params.date;
+    console.log(selectedDate)
+    const appointments = await Appointment.find({ date: selectedDate });
+
+    res.json({ success: true, appointments });
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).json({ success: false, error: 'Error' });
+  }
+};
