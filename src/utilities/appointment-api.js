@@ -27,20 +27,8 @@ export function updateAppointment(appointmentId,formData) {
 }
 
 export const getAppointmentsByDate = async (selectedDate) => {
-  try {
-    const response = await fetch(`${BASE_URL}/appointmentsByDate/${selectedDate}`);
+  const url = `${BASE_URL}/appointmentsByDate/${selectedDate}`;
+  return sendRequest(url, 'GET');
+}
 
-    if (!response.ok) {
-      throw new Error(`Failed ${response.status}`);
-    }
-
-    const data = await response.json();
-    console.log(data)
-    
-    return data;
-  } catch (error) {
-    console.error('Error', error);
-    throw error;
-  }
-};
 

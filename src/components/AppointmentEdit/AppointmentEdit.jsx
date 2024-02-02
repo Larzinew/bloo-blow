@@ -42,6 +42,12 @@ const EditAppointmentPage = ({appointment, updateAppointment}) => {
       </label>
 
       <br />
+      
+      <label>
+        Time:
+          <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+      </label>
+      <br />
 
       <label>
         Client Name:

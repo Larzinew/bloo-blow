@@ -48,15 +48,17 @@ async function updateAppointment(req, res) {
     res.status(400).json(err);
   }
 }
+
 async function getAppointmentByDate(req, res){
   try{
-    const selectedDate = req.params.date;
+    const selectedDate = new Date(req.params.date)
+    selectedDate.setUTCHours(0, 0, 0, 0)
     console.log(selectedDate)
     const appointments = await Appointment.find({ date: selectedDate });
 
-    res.json({ success: true, appointments });
+    res.json(appointments)
   } catch (error) {
     console.error('Error', error);
-    res.status(500).json({ success: false, error: 'Error' });
+    res.status(400).json(error)
   }
 };

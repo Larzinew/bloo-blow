@@ -5,6 +5,7 @@ const AppointmentForm = ({ addAppointment }) => {
   const [formData, setFormData] = useState({
     date: '',
     clientName: '',
+    time: '09:00',
     serviceType: 'Wash and Style',
   });
 
@@ -24,7 +25,8 @@ const AppointmentForm = ({ addAppointment }) => {
       setFormData({
         date: '',
         clientName: '',
-        serviceType: '',
+        time: '09:00',
+        serviceType: 'Wash and Style',
       });
     } catch (error) {
       console.error('Error creating appointment:', error);
@@ -36,6 +38,12 @@ const AppointmentForm = ({ addAppointment }) => {
       <label>
         Date:
           <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+      </label>
+      <br />
+      
+      <label>
+        Time:
+          <input type="time" name="time" value={formData.time} onChange={handleChange} required />
       </label>
       <br />
 
