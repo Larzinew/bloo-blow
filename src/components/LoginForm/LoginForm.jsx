@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -28,17 +29,21 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
+    <div className="container mt-5">
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <input type="text" className="form-control" name="email" value={credentials.email} onChange={handleChange} required />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input type="password" className="form-control" name="password" value={credentials.password} onChange={handleChange} required />
+          </div>
+          <button type="submit" className="btn btn-primary">LOG IN</button>
         </form>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
+      <p className="error-message mt-3">&nbsp;{error}</p>
     </div>
   );
 }

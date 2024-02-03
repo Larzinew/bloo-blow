@@ -1,5 +1,6 @@
 import MonthlyCalendar from '../../components/MonthlyCalendar/MonthlyCalendar'
 import { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AvailabilityPage ({ }) {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -30,8 +31,8 @@ export default function AvailabilityPage ({ }) {
 
  
     return (
-      <div>
-        <h2>Monthly Calendar</h2>
+    <div className="container mt-5">
+      <h2 className="mb-4">Monthly Calendar</h2>
         <MonthlyCalendar />
     </div>
   );
