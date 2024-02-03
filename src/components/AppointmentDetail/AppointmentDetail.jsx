@@ -1,7 +1,7 @@
 import * as appointmentAPI from '../../utilities/appointment-api';
 import AppointmentEdit from '../AppointmentEdit/AppointmentEdit';
 import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 const AppointmentDetailPage = ({ appointment, fetchAppointments, updateAppointment }) => {
   const [showEdit, setShowEdit] = useState(false);

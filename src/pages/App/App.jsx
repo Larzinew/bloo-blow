@@ -8,6 +8,7 @@ import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import AvailabilityPage from '../AvailabilityPage/AvailabilityPage'
 import SchedulePage from '../SchedulePage/SchedulePage';
 import HomePage from '../HomePage/HomePage';
+import ServiceList from '../../components/ServiceList/ServiceList';
 
 
 
@@ -26,6 +27,8 @@ export default function App() {
               <Route path='/appointment/new' element={<AppointmentPage />} />
               <Route path='/availability' element={<AvailabilityPage />} />
               <Route path='/schedule/:selectedDate' element={<SchedulePage />} />
+              <Route path='/servicelist' element={<ServiceList />} />
+
             </Routes>
           </>
           :
