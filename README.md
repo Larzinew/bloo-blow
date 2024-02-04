@@ -41,6 +41,7 @@ In the future, we plan to implement the following features and enhancements:
 - Add Shopping Cart functionality
 - Add Notifications
 - Add Loyalty Program
+- Add Reviews
 
 Feel free to contribute or provide feedback! Thank you for checking out our project.
 
