@@ -1,12 +1,12 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --pur1: #A84CD9;
+  --pur1: #9e9c9f;
   --pur2: #7A4CD9;
   --pur3: #4C78D9;
-  --pur4: #C04CD9;
+  --pur4: #737074;
   --blue: #3c3cc3;
-  --text-light: #968c84;
+  --text-light: #464b77;
   --text-dark: #615954;
 }
 
@@ -167,5 +167,7 @@ button[type="submit"] {
     width: calc(50% - 20px);
   }
 }
+
+
 
 

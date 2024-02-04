@@ -57,7 +57,7 @@ const Home = () => {
         <div className="card">
           <h3>Add Appointment</h3>
           <p>Schedule your next blowdry appointment with us.</p>
-          <Link to="/add-appointment" className="btn btn-primary">Schedule Now</Link>
+          <Link to="/appointment/new" className="btn btn-primary">Schedule Now</Link>
         </div>
 
         {/* Check Schedule Card */}
