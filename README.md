@@ -36,6 +36,7 @@ Users can see all appointments for a specific day
 - MongoDB/Mongoose
 - Bootstrap
 - Toastify
+- Canva AI 
 
 ### Getting Started
 To get started with the project, you can check out my planning on [Trello](https://trello.com/invite/b/GrGOyqTL/ATTI364664d9acc8b2d20cfcbe1317996b08B340EAEA/project-4-bl-ooo) and explore the deployed app on [Heroku](https://bloo-blow-a62f91151ae3.herokuapp.com/).
