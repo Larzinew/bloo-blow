@@ -33,7 +33,7 @@ Users can see all appointments for a specific day
 - React
 - Node.js
 - Express
-- MongoDB
+- MongoDB/Mongoose
 - Bootstrap
 - Toastify
 
