@@ -45,7 +45,8 @@ I'm still working on resolving the following issues:
 
 - Google O Auth
 - Getting appointment availability by time
-- Scheduling Appointments by available times
+- Show appointments by available times/duration
+- Scheduling appointments by available times/duration
 
 **Future Enhancements**
 In the future, we plan to implement the following features and enhancements:
